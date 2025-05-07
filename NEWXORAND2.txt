@@ -1,0 +1,23 @@
+str1 = "Hello World"
+length = len(str1)
+
+# OR with 127
+print("OR Operation (Number and Character):")
+for i in range(length):
+    result = ord(str1[i]) | 127
+    print(f"{result} ({chr(result)})", end=' ')
+print("\n")
+
+# AND with 127
+print("AND Operation (Number and Character):")
+for i in range(length):
+    result = ord(str1[i]) & 127
+    print(f"{result} ({chr(result)})", end=' ')
+print("\n")
+
+# XOR with 127
+print("XOR Operation (Number and Character):")
+for i in range(length):
+    result = ord(str1[i]) ^ 127
+    print(f"{result} ({chr(result)})", end=' ')
+print()

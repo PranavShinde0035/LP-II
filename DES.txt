@@ -1,0 +1,19 @@
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
+
+# Take 8-character message from user
+text = input("Enter an 8-character message: ")
+if len(text) != 8:
+    print("Error: Message must be exactly 8 characters.")
+    exit()
+
+key = get_random_bytes(8)  # DES key must be 8 bytes
+cipher = DES.new(key, DES.MODE_ECB)
+
+# Encrypt and decrypt
+cipher_text = cipher.encrypt(text.encode())
+print("Encrypted:", cipher_text)
+
+decipher = DES.new(key, DES.MODE_ECB)
+plain_text = decipher.decrypt(cipher_text).decode()
+print("Decrypted:", plain_text)

@@ -1,0 +1,17 @@
+def evaluate_performance(score, attendance, teamwork):
+    if score >= 90 and attendance == 'Good' and teamwork == 'Excellent':
+        return "Outstanding"
+    elif score >= 75 and attendance in ['Good', 'Average'] and teamwork in ['Good', 'Excellent']:
+        return "Very Good"
+    elif score >= 60:
+        return "Average"
+    else:
+        return "Needs Improvement"
+
+# Sample input
+score = int(input("Enter performance score (0-100): "))
+attendance = input("Enter attendance level (Good/Average/Poor): ")
+teamwork = input("Enter teamwork level (Excellent/Good/Poor): ")
+
+result = evaluate_performance(score, attendance, teamwork)
+print("Performance Evaluation:", result)

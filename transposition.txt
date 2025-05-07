@@ -1,0 +1,32 @@
+def encrypt(message, key):
+    cols = ['' for _ in range(key)]
+    for i, char in enumerate(message):
+        cols[i % key] += char
+    return ''.join(cols)
+
+def decrypt(cipher, key):
+    col_len = len(cipher) // key
+    extra = len(cipher) % key
+    cols = []
+    start = 0
+    for i in range(key):
+        end = start + col_len + (1 if i < extra else 0)
+        cols.append(cipher[start:end])
+        start = end
+    message = ''
+    for i in range(max(len(col) for col in cols)):
+        for col in cols:
+            if i < len(col):
+                message += col[i]
+    return message
+
+# Take input from user
+text = input("Enter the message: ").replace(" ", "").upper()
+key = int(input("Enter the key (as number of columns): "))
+
+# Perform encryption and decryption
+cipher = encrypt(text, key)
+print("Encrypted text:", cipher)
+
+plain = decrypt(cipher, key)
+print("Decrypted text:", plain)

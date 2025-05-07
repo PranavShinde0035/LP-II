@@ -1,0 +1,20 @@
+str1 = "Hello World"
+length= len(str1)
+
+# OR WITH 127
+print("OR opreation :")
+for i in range(length):
+    print(ord(str1[i]) | 127,end=' ')
+print()
+
+# and with 127
+print('AND opreation :')
+for i in range(length):
+    print(ord(str1[i]) & 127,end=' ')
+print()
+
+#xor with 127
+print("XOR opreation :")
+for i in range(length):
+    print(ord(str1[i]) ^ 127,end=' ')
+print()
